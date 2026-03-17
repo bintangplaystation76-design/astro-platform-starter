@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINTANG PLAYSTATION - SEWA PLAYSTATION TERLENGKAP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ps-blue: #0070D2;
+            --ps-light-blue: #00A3FF;
+            --ps-dark: #003087;
+            --ps-white: #FFFFFF;
+            --ps-gray: #333333;
+            --ps-light-gray: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--ps-gray);
+            overflow-x: hidden;
+        }
+
+        /* Header dengan PS Controller Animation */
+        header {
+            background: linear-gradient(135deg, var(--ps-blue) 0%, var(--ps-dark) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,112,210,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--ps-light-blue);
+            text-shadow: 0 0 10px var(--ps-light-blue);
+        }
+
+        .cta-btn {
+            background: var(--ps-light-blue);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,163,255,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230070D2" width="1200" height="600"/><circle fill="%2300A3FF" opacity="0.3" cx="200" cy="200" r="100"/><circle fill="%23FFFFFF" opacity="0.2" cx="1000" cy="400" r="150"/><path fill="%23003087" d="M0 500 Q300 400 600 500 T1200 500 V600 H0 Z"/></svg>');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        /* Cards Section */
+        .packages {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--ps-dark);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,112,210,0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ps-blue), var(--ps-light-blue));
+            transition: left 0.4s;
+        }
+
+        .package-card:hover::before {
+            left: 0;
+        }
+
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,112,210,0.2);
+        }
+
+        .package-icon {
+            font-size: 4rem;
+            color: var(--ps-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--ps-dark);
+            margin: 1rem 0;
+        }
+
+        /* Game Gallery */
+        .games {
+            padding: 100px 2rem;
+            background: var(--ps-light-gray);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--ps-blue), var(--ps-light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            outline: none;
+            border-color: var(--ps-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ps-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* PS Controller Floating Effect */
+        .controller-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: var(--ps-blue);
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                BINTANG PLAYSTATION
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Paket</a></li>
+                <li><a href="#games">Game</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="#contact" class="cta-btn">Pesan Sekarang</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-trophy"></i> BINTANG PLAYSTATION</h1>
+            <p>Sewa PlayStation Terlengkap • Harga Terjangkau • Siap Antar Jemput</p>
+            <a href="#packages" class="cta-btn" style="font-size: 1.2rem; padding: 18px 36px;">
+                Lihat Paket <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <h2 class="section-title">Pilih Paket Rental Harianmu</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>PS3</h3>
+                <div class="package-price">Rp 50.000 <span>/Hari</span></div>
+                <ul style="text-align: left; margin: 1.5rem 0;">
+                    <li>✅ PS3 Slim </li>
+                    <li>✅ Game Terupdate</li>
+                    <li>✅ Controller Tambahan</li>
+                    <li>✅ Antar Jemput ke Alamat </li>
+                </ul>
+                <button class="cta-btn">Pesan PS3</button>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>PS4</h3>
+                <div class="package-price">Rp 85.000 <span>/jam</span></div>
+                <ul style="text-align: left; margin: 1.5rem 0;">
+                    <li>✅ PS4 Best Edition</li>
+                    <li>✅ Game Terbaik</li>
+                    <li>✅ controller Tambahan</li>
+                    <li>✅ TV 43"</li>
+                </ul>
+                <button class="cta-btn">Pesan PS4</button>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3>PS3 + TV</h3>
+                <div class="package-price">Rp 100.000 <span>/Hari</span></div>
+                <ul style="text-align: left; margin: 1.5rem 0;">
+                    <li>✅ Full Game</li>
+                    <li>✅ Banyak Game Berdua</li>
+                    <li>✅ Cocok buat seru-seruan</li>
+                    <li>✅ Include Game PS2</li>
+                </ul>
+                <button class="cta-btn">Pesan 1 Set</button>
+            </div>
+			<div class="package-card">
+                <div class="package-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3>PS4 + TV</h3>
+                <div class="package-price">Rp 150.000 <span>/Hari</span></div>
+                <ul style="text-align: left; margin: 1.5rem 0;">
+                    <li>✅ Full Game Update</li>
+                    <li>✅ Banyak Game Berdua</li>
+                    <li>✅ Kumpul Bareng Teman</li>
+                    <li>✅ Tv 43" Lebih Besar</li>
+                </ul>
+                <button class="cta-btn">Pesan 1 Set</butt
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games">
+        <h2 class="section-title">Game Tersedia</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-futbol"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>PES2026 Update</h4>
+                    <p>Football terbaru dengan grafis realistis</p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-skull-crossbones"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>Call of Duty</h4>
+                    <p>Multiplayer battle royale terhebat</p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-dragon"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>Elden Ring</h4>
+                    <p>Action RPG open world epik</p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-car"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>Grand Turismo 7</h4>
+                    <p>Racing Simulator Terbaik</p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-dungeon"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>GTA V</h4>
+                    <p>Open world crime adventure</p>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image"><i class="fas fa-spider"></i></div>
+                <div style="padding: 1.5rem;">
+                    <h4>Spider-Man 2</h4>
+                    <p>Superhero action New York</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Pesan Sekarang</h2>
+        <form>
+            <input type="text" placeholder="Nama Lengkap" required>
+            <input type="tel" placeholder="No. WhatsApp" required>
+            <input type="email" placeholder="Email (opsional)">
+            <select style="padding: 15px; border: 2px solid #eee; border-radius: 10px;">
+                <option>Pilih Paket</option>
+                <option>PS3 (Rp50rb/Hari)</option>
+                <option>PS4(Rp85rb/Hari)</option>
+                <option>PS3 + TV (Rp100rb/Hari)</option>
+				<option>PS4 + TV (Rp150rb/Hari)</option>
+            </select>
+            <textarea rows="5" placeholder="Alamat & Waktu Pengiriman" required></textarea>
+            <button type="submit" class="cta-btn" style="font-size: 1.2rem;">
+                <i class="fab fa-whatsapp"></i> Kirim Pesanan via WA
+            </button>
+        </form>
+        <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h3><i class="fas fa-phone"></i> Kontak Cepat</h3>
+            <p><strong>📱 WA:</strong> 0822-8703-5768</p>
+            <p><strong>📍 Area:</strong> Batam & Sekitarnya</p>
+            <p><strong>⏰ Jam Operasional:</strong> 24 jam</p>
+        </div>
+    </section>
+
+    <!-- Floating Controller -->
+    <div class="controller-float" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BINTANG PLAYSTATION. Rental PlayStation No.1 di Kotamu! 
+        <i class="fas fa-heart" style="color: #ff4757;"></i>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Pesanan berhasil dikirim! Kami akan hubungi via WhatsApp dalam 5 menit.');
+        });
+
+        // WhatsApp floating button
+        document.querySelector('.controller-float').addEventListener('click', function() {
+            window.open('https://wa.me/6282287035768
